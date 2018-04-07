@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Finished from './components/Finished'
 import EnterGuess from './components/EnterGuess'
+import Word from './components/Word'
 import Guesses from './components/Guesses'
 
 const data = {
@@ -22,9 +23,11 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
 
+        <Word data={data} />
+
         <Guesses guesses={data.guesses} />
 
-        <GuessForm />
+        <EnterGuess />
 
         <Finished />
 
