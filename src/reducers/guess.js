@@ -2,7 +2,7 @@
 
 const initialState = {
   word: "",
-  guesses: []
+  guesses: ["a","b"]
 }
 
 export default (state = initialState, { type, payload } = {}) => {

@@ -6,7 +6,7 @@ describe('guess reducer', () => {
   const reducer = guess
   const initialState = {
     word: "",
-    guesses: []
+    guesses: ["a","b"]
   }
 
   it('returns an empty array for the initial state', () => {
