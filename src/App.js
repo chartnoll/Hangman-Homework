@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Finished from './components/Finished'
 import GuessForm from './components/GuessForm'
-import Progress from './components/Progress'
+import Guesses from './components/Guesses'
 
 const data = {
   word: "hello",
@@ -22,7 +22,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
 
-        <Progress guesses={data.guesses} />
+        <Guesses guesses={data.guesses} />
 
         <GuessForm />
 

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const textToShow = ["a","b"]
 const word2 = "Hello"
 
-export class Progress extends PureComponent {
+export class Guesses extends PureComponent {
   static propTypes = {
     guesses: PropTypes.arrayOf(
           PropTypes.string
@@ -17,14 +17,15 @@ export class Progress extends PureComponent {
       ).isRequired*/
 
   render() {
+    const {guesses} = this.props
     console.log(this.props.guessed)
     return (
       <div className="Guesses">
         <p>You guessed: {this.props.guesses[0]} </p>
-        <p>, {this.props.guesses[1]}, {this.props.guesses[2]} </p>
+        <p>, {guesses[1]}, {guesses[2]} </p>
       </div>
     )
   }
 }
 
-export default Progress
+export default Guesses
