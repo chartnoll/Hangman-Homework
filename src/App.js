@@ -7,7 +7,7 @@ import Progress from './components/Progress'
 
 const data = {
   word: "hello",
-  guesses: "aig"
+  guesses: ["a","i","g"]
 }
 
 class App extends Component {
