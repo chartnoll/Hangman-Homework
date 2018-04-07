@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-class GuessForm extends PureComponent {
+class EnterGuess extends PureComponent {
 	state = {}
 
 	handleSubmit = (e) => {
@@ -35,4 +35,4 @@ class GuessForm extends PureComponent {
 	}
 }
 
-export default GuessForm
+export default EnterGuess

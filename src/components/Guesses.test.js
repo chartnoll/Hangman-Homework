@@ -1,16 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Progress } from './Progress.js'
+import { Guesses } from './Guesses.js'
 
-const testValues = {
-  word: "New",
-  guesses: ["z","x","y"]
-}
-
-
-describe('<Progress />', () => {
+describe('<Guesses />', () => {
   const newProgress = shallow(
-    <Progress />
+    <Guesses />
   )
 
   it('renders a div with class Board', () => {

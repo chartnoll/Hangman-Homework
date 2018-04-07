@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Finished from './components/Finished'
-import GuessForm from './components/GuessForm'
+import EnterGuess from './components/EnterGuess'
 import Guesses from './components/Guesses'
 
 const data = {
