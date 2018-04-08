@@ -8,7 +8,7 @@ import Guesses from './components/Guesses'
 
 const data = {
   word: "hello",
-  guesses: ["a","i","g"]
+  guesses: ["a","j","k"]
 }
 
 class App extends Component {
