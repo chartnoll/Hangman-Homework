@@ -1,25 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
-function compareLetter(letter, word) {
-  if(word.indexOf(letter) === -1) return 0
-  else return 1
-}
-
-function displayProgress(word, guesses){
-  guesses = guesses.join("")
-  let wordArray = word.split("")
-  let answer = []
-  console.log(answer, wordArray, guesses)
-  wordArray.forEach( function (letter) {
-    if(compareLetter(letter, guesses) === 1){
-      answer.push(letter)
-    }
-    else answer.push("_")
-  })
-  return answer.join(" ")
-}
+import displayProgress from '../HMlibrary'
 
 export class Word extends PureComponent {
   static propTypes = {
