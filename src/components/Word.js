@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 function compareLetter(letter, word) {
-  if(word.indexOf(letter) === -1) return 1
-  else return 0
+  if(word.indexOf(letter) === -1) return 0
+  else return 1
 }
 
 function displayProgress(word, guesses){
@@ -13,15 +13,12 @@ function displayProgress(word, guesses){
   let answer = []
   console.log(answer, wordArray, guesses)
   wordArray.forEach( function (letter) {
-    if(compareLetter(letter, guesses) === -1){
-      console.log(letter, guesses)
+    if(compareLetter(letter, guesses) === 1){
       answer.push(letter)
-      console.log(`Answer is now ${answer}`)
     }
     else answer.push("_")
   })
-  answer = answer.join(" ")
-  return answer
+  return answer.join(" ")
 }
 
 export class Word extends PureComponent {
@@ -37,8 +34,6 @@ export class Word extends PureComponent {
   render() {
     const guesses = this.props.data.guesses
     const word = this.props.data.word
-    console.log(word)
-    console.log(guesses)
 
     return (
       <div className="Word">
