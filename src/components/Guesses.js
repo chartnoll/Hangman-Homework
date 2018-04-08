@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 export class Guesses extends PureComponent {
   static propTypes = {
-    guesses: PropTypes.shape({
+    data: PropTypes.shape({
       word: PropTypes.string.isRequired,
       guesses: PropTypes.arrayOf(
           PropTypes.string
@@ -13,11 +13,11 @@ export class Guesses extends PureComponent {
   }
 
   render() {
-    console.log(this.props.guesses)
-    const guesses = this.props.guesses
+    console.log(this.props.data)
+    const data = this.props.data
     return (
       <div className="Guesses">
-        <p>You guessed: {guesses.guesses}</p>
+        <p>You guessed: {data.guesses}</p>
       </div>
     )
   }
@@ -25,19 +25,8 @@ export class Guesses extends PureComponent {
 
 function mapStateToProps(state){
   return {
-    guesses: state.guesses
+    data: state.guesses
   }
 }
 
 export default connect(mapStateToProps)(Guesses)
-
-//const {guesses} = this.props
-
-
-/*
-static propTypes = {
-  guesses: PropTypes.arrayOf(
-        PropTypes.string
-      ).isRequired
-}
-*/

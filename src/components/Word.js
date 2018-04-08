@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 function compareLetter(letter, word) {
   if(word.indexOf(letter) === -1) return 1
@@ -26,15 +27,14 @@ function displayProgress(word, guesses){
 export class Word extends PureComponent {
   static propTypes = {
     data: PropTypes.shape({
-      word: PropTypes.isRequired,
+      word: PropTypes.string.isRequired,
       guesses: PropTypes.arrayOf(
           PropTypes.string
         ).isRequired
-      }).isRequired
-    }
+    })
+  }
 
   render() {
-    console.log(this.props.data.guesses)
     const guesses = this.props.data.guesses
     const word = this.props.data.word
     console.log(word)
@@ -49,4 +49,10 @@ export class Word extends PureComponent {
   }
 }
 
-export default Word
+function mapStateToProps(state){
+  return {
+    data: state.word
+  }
+}
+
+export default connect(mapStateToProps)(Word)
