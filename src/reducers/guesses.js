@@ -1,7 +1,7 @@
 // src/reducers/board.js
 
 const initialState = {
-  word: "hello",
+  word: "goodbye",
   guesses: ["f","g"]
 }
 

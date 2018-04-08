@@ -1,9 +1,9 @@
 // src/reducers/board.test.js
 
-import guess from './guess'
+import guesses from './guesses'
 
-describe('guess reducer', () => {
-  const reducer = guess
+describe('guesses reducer', () => {
+  const reducer = guesses
   const initialState = {
     word: "",
     guesses: ["a","b"]

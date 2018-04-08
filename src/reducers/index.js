@@ -1,8 +1,8 @@
 // src/reducers/index.js
-import guess from './guess'
+import guesses from './guesses'
 import word from './word'
 
 export default {
   word,
-  guess
+  guesses
 } // empty for now!

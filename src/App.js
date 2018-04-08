@@ -25,7 +25,7 @@ class App extends Component {
 
         <Word data={data} />
 
-        <Guesses guesses={data.guesses} />
+        <Guesses />
 
         <EnterGuess />
 
