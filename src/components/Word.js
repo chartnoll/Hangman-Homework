@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import displayProgress from '../HMlibrary'
+import {Library} from '../HMlibrary'
 
 export class Word extends PureComponent {
   static propTypes = {
@@ -20,7 +20,7 @@ export class Word extends PureComponent {
     return (
       <div className="Word">
         <p>What is the word??</p>
-        <p>{displayProgress(word, guesses)}</p>
+        <p>{Library.displayProgress(word, guesses)}</p>
       </div>
     )
   }

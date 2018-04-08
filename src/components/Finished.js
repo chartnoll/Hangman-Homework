@@ -1,10 +1,16 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import {Library} from '../HMlibrary'
 
 export class Finished extends PureComponent {
   static propTypes = {
-    hide: PropTypes.bool
+    data: PropTypes.shape({
+      word: PropTypes.string.isRequired,
+      guesses: PropTypes.arrayOf(
+          PropTypes.string
+        ).isRequired
+    })
   }
 
   render() {
@@ -12,15 +18,17 @@ export class Finished extends PureComponent {
 
     return (
       <div className="Finished">
-        <div className="dialog">
-          <h1>Well Done!</h1>
-          <p>Congrats on finishing the game!</p>
-          <div className="actions">
-          </div>
-        </div>
+        <h1>Your Progress</h1>
+        <p>{Library.gameProgress(this.props.data.word, this.props.data.guesses)}</p>
       </div>
     )
   }
 }
 
-export default Finished
+function mapStateToProps(state){
+  return {
+    data: state.word
+  }
+}
+
+export default connect(mapStateToProps)(Finished)

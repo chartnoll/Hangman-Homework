@@ -1,38 +1,45 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import {newGuess} from '../actions/game'
+import { bindActionCreators } from 'redux'
 
 class EnterGuess extends PureComponent {
-	state = {}
+	state = {name: ""}
 
-	handleSubmit = (e) => {
-		e.preventDefault()
-		this.props.onSubmit(this.state)
+	guessedLetter(letter){
+		this.props.dispatch({type: "NEW_GUESS", payload: this.state.value})
 	}
 
-	handleChange = (event) => {
-		const {guess} = event.target
+	handleChange(event) {
+		this.setState({value: event.target.value})
+	}
 
-		this.setState({
-		  guess: ""
-		})
+	handleSubmit = (event) => {
+		this.guessedLetter(this.state.value)
+		event.preventDefault()
 	}
 
 	render() {
-		const initialValues = this.props.initialValues || {}
+		console.log("Value is equal to",this.props.value)
 		return (
 			<form onSubmit={this.handleSubmit}>
-				<div>
-					<label htmlFor="guess">Letter to guess</label>
-					<input guess="guess" value={
-						this.state.guess || initialValues.guess || ''
-					} onChange={ this.handleChange } />
+				<div className="NewGuess">
+					<label htmlFor="letter">Next Letter:</label>
+					<input name="guess" id="guess" value={this.state.value} onChange={this.handleChange} />
 				</div>
-
-				<button type="submit">Submit</button>
 			</form>
 		)
 	}
 }
 
-export default EnterGuess
+function mapStateToProps(state){
+  return {
+    data: state.data
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({newGuess: newGuess}, dispatch)
+}
+
+export default connect(mapStateToProps, {newGuess})(EnterGuess)
