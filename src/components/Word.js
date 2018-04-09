@@ -5,18 +5,16 @@ import {Library} from '../HMlibrary'
 
 export class Word extends PureComponent {
   static propTypes = {
-    data: PropTypes.shape({
       word: PropTypes.string.isRequired,
       guesses: PropTypes.arrayOf(
           PropTypes.string
         ).isRequired
-    })
-  }
+    }
 
   render() {
-    const guesses = this.props.data.guesses
-    const word = this.props.data.word
-
+    const guesses = this.props.guesses
+    const word = this.props.word
+    console.log("line17",word, guesses)
     return (
       <div className="Word">
         <p>What is the word??</p>
@@ -26,10 +24,10 @@ export class Word extends PureComponent {
   }
 }
 
-function mapStateToProps(state){
-  return {
-    data: state.word
-  }
+//Library.displayProgress(word, guesses)
+
+function mapStateToProps(reduxState){
+  return {word: reduxState.word, guesses: reduxState.guesses }
 }
 
 export default connect(mapStateToProps)(Word)
